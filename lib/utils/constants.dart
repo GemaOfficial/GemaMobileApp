@@ -44,4 +44,4 @@ OutlineInputBorder focusedErrorBorder = OutlineInputBorder(
 );
 
 // const baseUrl = 'http://54.226.253.189';
-const baseUrl = 'https://api.gemaofficial.io';
+const baseUrl = 'https://api.gemaloyalty.io';
