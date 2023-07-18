@@ -16,9 +16,10 @@ class LoginController extends GetxController {
 
   Future<dynamic> loginUser() async {
     Map<String, dynamic> loginData = {
-      'phone_number': "0${phoneCtrlr.text}",
+      'phone_number': "+254${phoneCtrlr.text}",
       'password': passCtrlr.text,
     };
+    
     if (loginFormKey.currentState!.validate()) {
       loginFormKey.currentState?.save();
       return await loginService.loginUser(loginData);
