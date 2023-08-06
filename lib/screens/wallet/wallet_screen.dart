@@ -133,7 +133,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               child: Text(
                                 'Loading...',
                                 style: textStyle.copyWith(
-                                  fontSize: getProportionateScreenWidth(30),
+                                  fontSize: getProportionateScreenWidth(20),
                                   fontWeight: FontWeight.w700,
                                   fontFamily: 'Zwodrei',
                                 ),

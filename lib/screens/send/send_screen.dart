@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
@@ -18,6 +19,11 @@ class SendScreen extends GetView<WalletController> {
   @override
   Widget build(BuildContext context) {
     var isValid = false.obs;
+
+    // final connectivityResult = await (Connectivity().checkConnectivity());
+
+    var isConnected = false.obs;
+
     return Scaffold(
       backgroundColor: kBgColor,
       appBar: AppBar(
@@ -30,7 +36,10 @@ class SendScreen extends GetView<WalletController> {
           ),
         ),
       ),
-      body: FutureBuilder(
+      body: 
+      // (!isConnected.value) ? null :
+      // () ? NoToken:
+      FutureBuilder(
           future: controller.fetchTokenList(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
@@ -185,7 +194,7 @@ class SendScreen extends GetView<WalletController> {
                                           width:
                                               getProportionateScreenWidth(120),
                                           child: Text(
-                                            '${controller.selectedToken?.name}',
+                                            'None',//'{controller.selectedToken?.name}',
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
                                               fontSize:
@@ -208,8 +217,8 @@ class SendScreen extends GetView<WalletController> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  controller.sendAmountCtrl.text =
-                                      controller.selectedToken!.balance;
+                                  controller.sendAmountCtrl.text = "0";
+                                      // controller.selectedToken!.balance;
                                 },
                                 child: Text(
                                   "Use Max",
@@ -239,7 +248,7 @@ class SendScreen extends GetView<WalletController> {
                             cursorHeight: getProportionateScreenHeight(48),
                             cursorColor: kPrimaryColor,
                             decoration: InputDecoration(
-                              hintText: controller.selectedToken!.balance,
+                              hintText: '0',// controller.selectedToken!.balance,
                               hintStyle: TextStyle(
                                 color: Colors.white.withOpacity(0.3),
                                 fontSize: getProportionateScreenHeight(42),
@@ -254,8 +263,10 @@ class SendScreen extends GetView<WalletController> {
                               }
                             },
                             validator: (value) {
-                              if (value!.isEmpty) {
-                                return "Amount required";
+                              if(value != null) {
+                                if (value.isEmpty) {
+                                  return "Amount required";
+                                }
                               }
 
                               return null;
@@ -286,7 +297,8 @@ class SendScreen extends GetView<WalletController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "\$ ${controller.selectedToken?.fiatValue ?? controller.userTokens[0].fiatValue}",
+                                  // "\$ {controller.selectedToken?.fiatValue ?? controller.userTokens[0].fiatValue}",
+                                  "0",
                                   style: TextStyle(
                                     color: kSecondaryColor,
                                     fontFamily: "Supermolot",
@@ -310,7 +322,7 @@ class SendScreen extends GetView<WalletController> {
                           height: getProportionateScreenHeight(20),
                         ),
                         Text(
-                          "Balance ${controller.selectedToken?.balance ?? controller.userTokens[0].balance} ${controller.selectedToken?.symbol ?? controller.userTokens[0].symbol}",
+                          "Balance 0", // ${controller.selectedToken?.balance ?? controller.userTokens[0].balance} ${controller.selectedToken?.symbol ?? controller.userTokens[0].symbol}",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: getProportionateScreenHeight(16),

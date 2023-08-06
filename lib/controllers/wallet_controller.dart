@@ -26,7 +26,10 @@ class WalletController extends GetxController {
     log("Length of TokenList${userTokens.length}");
     await fetchTokenList();
 
-    (selectedToken == null) ? selectedToken = userTokens[0] : selectedToken;
+    if (userTokens.isNotEmpty) {
+      selectedToken = (selectedToken == null) ? userTokens[0] : selectedToken;
+    }
+    
     update();
     super.onInit();
   }
@@ -35,7 +38,7 @@ class WalletController extends GetxController {
     userTokens.clear();
 
     var token = await storage.read('user_token');
-    var username = await storage.read('curr_username');
+    var phoneNumber = await storage.read('phone_number');
     var headers = {
       'Content-Type': 'application/json',
       'Authorization': 'x-auth-token $token',
@@ -47,13 +50,15 @@ class WalletController extends GetxController {
         headers: headers,
         body: jsonEncode(
           {
-            "username": username,
+            "phone_number": phoneNumber,
           },
         ),
       );
 
       if (res.statusCode == 200) {
         final myTokens = MyTokens.fromJson(jsonDecode(res.body));
+
+        log("Fetched tokens suceesfuly");
 
         for (int i = 0; i < myTokens.data.length; i++) {
           userTokens.add(
@@ -71,6 +76,7 @@ class WalletController extends GetxController {
         log("Could not fetch token list from server due to error ${res.statusCode}");
       }
     } catch (e) {
+        log("Could not fetch token list }");
       log(e.toString());
     }
     return null;

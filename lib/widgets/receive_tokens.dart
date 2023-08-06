@@ -54,7 +54,7 @@ class ReceiveTokens extends StatelessWidget {
               height: getProportionateScreenHeight(30),
             ),
             Container(
-              width: SizeConfig.screenWidth * 0.6,
+              width: SizeConfig.screenWidth * 0.45,
               decoration: BoxDecoration(
                 color: kBgColor,
                 borderRadius: BorderRadius.circular(10),
@@ -72,9 +72,9 @@ class ReceiveTokens extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: kBgColor,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(1),
                   ),
-                  width: SizeConfig.screenWidth * 0.5,
+                  width: SizeConfig.screenWidth * 0.3,
                   height: SizeConfig.screenHeight * 0.27,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -83,7 +83,7 @@ class ReceiveTokens extends StatelessWidget {
                       version: 9,
                       errorCorrectionLevel: QrErrorCorrectLevel.Q,
                       gapless: false,
-                      size: 200.0,
+                      size: 150.0,
                       backgroundColor: Colors.white,
                     ),
                   ),
@@ -191,7 +191,7 @@ class ReceiveTokens extends StatelessWidget {
             ),
             Container(
               width: SizeConfig.screenWidth,
-              height: getProportionateScreenHeight(44),
+              height: getProportionateScreenHeight(35),
               decoration: BoxDecoration(
                 color: kSecondaryColor,
                 borderRadius: BorderRadius.circular(8),

@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:gema_mobile/utils/constants.dart';
 
-class LoginService {
+class LogInService {
   final _storage = GetStorage();
   Future<dynamic> loginUser(Map<String, dynamic> loginData) async {
     var headers = {'Content-Type': 'application/json'};
@@ -25,6 +25,7 @@ class LoginService {
         EasyLoading.showSuccess('Login successful');
         log('token ::: + ${jsonDecode(res.body)['token']}');
         _storage.write('user_token', jsonDecode(res.body)['token']);
+        _storage.write('phone_number', loginData["phone_number"]);
         return true;
       } else {
         EasyLoading.showError('${jsonDecode(res.body)['msg']}');

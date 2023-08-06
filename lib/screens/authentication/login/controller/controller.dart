@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 // BUG: Duplicate GlobalKey detected in widget tree.
 
 class LoginController extends GetxController {
-  final loginService = LoginService();
+  final loginService = LogInService();
 
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
