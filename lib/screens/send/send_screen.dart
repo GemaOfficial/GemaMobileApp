@@ -36,336 +36,353 @@ class SendScreen extends GetView<WalletController> {
           ),
         ),
       ),
-      body: 
-      // (!isConnected.value) ? null :
-      // () ? NoToken:
-      FutureBuilder(
-          future: controller.fetchTokenList(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            } else {
-              return SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: GetBuilder<WalletController>(
-                    builder: (_) => Column(
-                      children: [
-                        SizedBox(
-                          height: getProportionateScreenHeight(15),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 36, 0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  showModalBottomSheet(
-                                    context: context,
-                                    isDismissible: true,
-                                    isScrollControlled: true,
-                                    shape: const RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(32),
-                                        topRight: Radius.circular(32),
-                                      ),
-                                    ),
-                                    builder: (context) {
-                                      return Container(
-                                        height: SizeConfig.screenHeight * 0.5,
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal:
-                                              getProportionateScreenWidth(27),
-                                          vertical:
-                                              getProportionateScreenHeight(20),
-                                        ),
-                                        decoration: const BoxDecoration(
-                                          color: kBgColor,
+      body:
+          // (!isConnected.value) ? null :
+          // () ? NoToken:
+          FutureBuilder(
+              future: controller.fetchTokenList(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else {
+                  return SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: GetBuilder<WalletController>(
+                        builder: (_) => Column(
+                          children: [
+                            SizedBox(
+                              height: getProportionateScreenHeight(15),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 36, 0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      showModalBottomSheet(
+                                        context: context,
+                                        isDismissible: true,
+                                        isScrollControlled: true,
+                                        shape: const RoundedRectangleBorder(
                                           borderRadius: BorderRadius.only(
                                             topLeft: Radius.circular(32),
                                             topRight: Radius.circular(32),
                                           ),
                                         ),
-                                        child: Column(
-                                          children: [
-                                            Container(
-                                              height:
-                                                  getProportionateScreenHeight(
-                                                      5),
-                                              width:
+                                        builder: (context) {
+                                          return Container(
+                                            height:
+                                                SizeConfig.screenHeight * 0.5,
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
                                                   getProportionateScreenWidth(
-                                                      41),
-                                              margin: EdgeInsets.only(
-                                                top:
-                                                    getProportionateScreenHeight(
-                                                        10),
-                                              ),
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xFFDDDEED),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                  getProportionateScreenHeight(
-                                                      100),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height:
-                                                  getProportionateScreenHeight(
                                                       27),
+                                              vertical:
+                                                  getProportionateScreenHeight(
+                                                      20),
                                             ),
-                                            Row(
+                                            decoration: const BoxDecoration(
+                                              color: kBgColor,
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(32),
+                                                topRight: Radius.circular(32),
+                                              ),
+                                            ),
+                                            child: Column(
                                               children: [
-                                                InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: const Icon(
-                                                    MdiIcons.chevronLeft,
-                                                    color: Colors.white,
+                                                Container(
+                                                  height:
+                                                      getProportionateScreenHeight(
+                                                          5),
+                                                  width:
+                                                      getProportionateScreenWidth(
+                                                          41),
+                                                  margin: EdgeInsets.only(
+                                                    top:
+                                                        getProportionateScreenHeight(
+                                                            10),
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                    color:
+                                                        const Color(0xFFDDDEED),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                      getProportionateScreenHeight(
+                                                          100),
+                                                    ),
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  width:
-                                                      getProportionateScreenWidth(
-                                                          113),
+                                                  height:
+                                                      getProportionateScreenHeight(
+                                                          27),
                                                 ),
-                                                Text(
-                                                  'Tokens',
-                                                  style: textStyle.copyWith(
-                                                    fontSize:
-                                                        getProportionateScreenWidth(
-                                                            16),
+                                                Row(
+                                                  children: [
+                                                    InkWell(
+                                                      onTap: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Icon(
+                                                        MdiIcons.chevronLeft,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      width:
+                                                          getProportionateScreenWidth(
+                                                              113),
+                                                    ),
+                                                    Text(
+                                                      'Tokens',
+                                                      style: textStyle.copyWith(
+                                                        fontSize:
+                                                            getProportionateScreenWidth(
+                                                                16),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height:
+                                                      getProportionateScreenHeight(
+                                                          17),
+                                                ),
+                                                Expanded(
+                                                  child: ListView.builder(
+                                                    itemCount: controller
+                                                        .userTokens.length,
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return SendTokenWidget(
+                                                        controller
+                                                            .userTokens[index]
+                                                            .name,
+                                                        controller
+                                                            .userTokens[index]
+                                                            .symbol,
+                                                        balance: controller
+                                                            .userTokens[index]
+                                                            .balance,
+                                                        onTap: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                          controller
+                                                              .selectToken(
+                                                                  index);
+                                                        },
+                                                      );
+                                                    },
                                                   ),
-                                                ),
+                                                )
                                               ],
                                             ),
-                                            SizedBox(
-                                              height:
-                                                  getProportionateScreenHeight(
-                                                      17),
-                                            ),
-                                            Expanded(
-                                              child: ListView.builder(
-                                                itemCount: controller
-                                                    .userTokens.length,
-                                                itemBuilder: (context, index) {
-                                                  return SendTokenWidget(
-                                                    controller
-                                                        .userTokens[index].name,
-                                                    controller.userTokens[index]
-                                                        .symbol,
-                                                    balance: controller
-                                                        .userTokens[index]
-                                                        .balance,
-                                                    onTap: () {
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                      controller
-                                                          .selectToken(index);
-                                                    },
-                                                  );
-                                                },
-                                              ),
-                                            )
-                                          ],
-                                        ),
+                                          );
+                                        },
                                       );
                                     },
-                                  );
-                                },
-                                child: Container(
-                                  width: getProportionateScreenWidth(160),
-                                  decoration: BoxDecoration(
-                                    color: kSecondaryColor,
-                                    borderRadius: BorderRadius.circular(8),
+                                    child: Container(
+                                      width: getProportionateScreenWidth(160),
+                                      decoration: BoxDecoration(
+                                        color: kSecondaryColor,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(6.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            SizedBox(
+                                              width:
+                                                  getProportionateScreenWidth(
+                                                      120),
+                                              child: Text(
+                                                'None', //'{controller.selectedToken?.name}',
+                                                overflow: TextOverflow.ellipsis,
+                                                style: TextStyle(
+                                                  fontSize:
+                                                      getProportionateScreenHeight(
+                                                          14),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width:
+                                                  getProportionateScreenWidth(
+                                                      5),
+                                            ),
+                                            const Icon(
+                                              Icons.keyboard_arrow_down_sharp,
+                                              size: 26,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                   ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      controller.sendAmountCtrl.text = "0";
+                                      // controller.selectedToken!.balance;
+                                    },
+                                    child: Text(
+                                      "Use Max",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            getProportionateScreenHeight(16),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(30),
+                            ),
+                            SizedBox(
+                              width: getProportionateScreenWidth(170),
+                              child: TextFormField(
+                                textAlign: TextAlign.center,
+                                controller: controller.sendAmountCtrl,
+                                keyboardType: TextInputType.number,
+                                textInputAction: TextInputAction.done,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: getProportionateScreenHeight(42),
+                                ),
+                                cursorHeight: getProportionateScreenHeight(48),
+                                cursorColor: kPrimaryColor,
+                                decoration: InputDecoration(
+                                  hintText:
+                                      '0', // controller.selectedToken!.balance,
+                                  hintStyle: TextStyle(
+                                    color: Colors.white.withOpacity(0.3),
+                                    fontSize: getProportionateScreenHeight(42),
+                                  ),
+                                  border: InputBorder.none,
+                                ),
+                                onChanged: (value) {
+                                  if (value.isNotEmpty) {
+                                    isValid.value = true;
+                                  } else {
+                                    isValid.value = false;
+                                  }
+                                },
+                                validator: (value) {
+                                  if (value != null) {
+                                    if (value.isEmpty) {
+                                      return "Amount required";
+                                    }
+                                  }
+
+                                  return null;
+                                },
+                              ),
+                            ),
+
+                            // Text(
+                            //   "119.7912",
+                            //   style: TextStyle(
+                            //     color: Colors.white,
+                            //     fontSize: getProportionateScreenHeight(42),
+                            //   ),
+                            // ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(20),
+                            ),
+                            Container(
+                              width: getProportionateScreenWidth(120),
+                              decoration: BoxDecoration(
+                                color: kSecondaryColor.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(160),
+                              ),
+                              alignment: Alignment.center,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      // "\$ {controller.selectedToken?.fiatValue ?? controller.userTokens[0].fiatValue}",
+                                      "0",
+                                      style: TextStyle(
+                                        color: kSecondaryColor,
+                                        fontFamily: "Supermolot",
+                                        fontWeight: FontWeight.w600,
+                                        fontSize:
+                                            getProportionateScreenHeight(16),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: getProportionateScreenWidth(7),
+                                    ),
+                                    Icon(
+                                      MdiIcons.swapVertical,
+                                      size: 22,
+                                      color: kSecondaryColor,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenHeight(20),
+                            ),
+                            Text(
+                              "Balance 0", // ${controller.selectedToken?.balance ?? controller.userTokens[0].balance} ${controller.selectedToken?.symbol ?? controller.userTokens[0].symbol}",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: getProportionateScreenHeight(16),
+                                fontFamily: "Supermolot",
+                              ),
+                            ),
+                            const Spacer(),
+                            Obx(
+                              () => GestureDetector(
+                                onTap: () => (isValid.value ||
+                                        controller
+                                            .sendAmountCtrl.text.isNotEmpty)
+                                    ? sendNextStep(context)
+                                    : null,
+                                child: Container(
+                                  width: SizeConfig.screenWidth * 0.8,
+                                  height: getProportionateScreenHeight(46),
+                                  decoration: BoxDecoration(
+                                      color: (isValid.value ||
+                                              controller.sendAmountCtrl.text
+                                                  .isNotEmpty)
+                                          ? kSecondaryColor
+                                          : Colors.grey,
+                                      borderRadius: BorderRadius.circular(8)),
                                   alignment: Alignment.center,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(6.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        SizedBox(
-                                          width:
-                                              getProportionateScreenWidth(120),
-                                          child: Text(
-                                            'None',//'{controller.selectedToken?.name}',
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                              fontSize:
-                                                  getProportionateScreenHeight(
-                                                      14),
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: getProportionateScreenWidth(5),
-                                        ),
-                                        const Icon(
-                                          Icons.keyboard_arrow_down_sharp,
-                                          size: 26,
-                                        ),
-                                      ],
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      "Next",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenHeight(16),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  controller.sendAmountCtrl.text = "0";
-                                      // controller.selectedToken!.balance;
-                                },
-                                child: Text(
-                                  "Use Max",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: getProportionateScreenHeight(16),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: getProportionateScreenHeight(30),
-                        ),
-                        SizedBox(
-                          width: getProportionateScreenWidth(170),
-                          child: TextFormField(
-                            textAlign: TextAlign.center,
-                            controller: controller.sendAmountCtrl,
-                            keyboardType: TextInputType.number,
-                            textInputAction: TextInputAction.done,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: getProportionateScreenHeight(42),
                             ),
-                            cursorHeight: getProportionateScreenHeight(48),
-                            cursorColor: kPrimaryColor,
-                            decoration: InputDecoration(
-                              hintText: '0',// controller.selectedToken!.balance,
-                              hintStyle: TextStyle(
-                                color: Colors.white.withOpacity(0.3),
-                                fontSize: getProportionateScreenHeight(42),
-                              ),
-                              border: InputBorder.none,
-                            ),
-                            onChanged: (value) {
-                              if (value.isNotEmpty) {
-                                isValid.value = true;
-                              } else {
-                                isValid.value = false;
-                              }
-                            },
-                            validator: (value) {
-                              if(value != null) {
-                                if (value.isEmpty) {
-                                  return "Amount required";
-                                }
-                              }
-
-                              return null;
-                            },
-                          ),
+                          ],
                         ),
-
-                        // Text(
-                        //   "119.7912",
-                        //   style: TextStyle(
-                        //     color: Colors.white,
-                        //     fontSize: getProportionateScreenHeight(42),
-                        //   ),
-                        // ),
-                        SizedBox(
-                          height: getProportionateScreenHeight(20),
-                        ),
-                        Container(
-                          width: getProportionateScreenWidth(120),
-                          decoration: BoxDecoration(
-                            color: kSecondaryColor.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(160),
-                          ),
-                          alignment: Alignment.center,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  // "\$ {controller.selectedToken?.fiatValue ?? controller.userTokens[0].fiatValue}",
-                                  "0",
-                                  style: TextStyle(
-                                    color: kSecondaryColor,
-                                    fontFamily: "Supermolot",
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: getProportionateScreenHeight(16),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: getProportionateScreenWidth(7),
-                                ),
-                                const Icon(
-                                  MdiIcons.swapVertical,
-                                  size: 22,
-                                  color: kSecondaryColor,
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: getProportionateScreenHeight(20),
-                        ),
-                        Text(
-                          "Balance 0", // ${controller.selectedToken?.balance ?? controller.userTokens[0].balance} ${controller.selectedToken?.symbol ?? controller.userTokens[0].symbol}",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: getProportionateScreenHeight(16),
-                            fontFamily: "Supermolot",
-                          ),
-                        ),
-                        const Spacer(),
-                        Obx(
-                          () => GestureDetector(
-                            onTap: () => (isValid.value ||
-                                    controller.sendAmountCtrl.text.isNotEmpty)
-                                ? sendNextStep(context)
-                                : null,
-                            child: Container(
-                              width: SizeConfig.screenWidth * 0.8,
-                              height: getProportionateScreenHeight(46),
-                              decoration: BoxDecoration(
-                                  color: (isValid.value ||
-                                          controller
-                                              .sendAmountCtrl.text.isNotEmpty)
-                                      ? kSecondaryColor
-                                      : Colors.grey,
-                                  borderRadius: BorderRadius.circular(8)),
-                              alignment: Alignment.center,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Next",
-                                  style: TextStyle(
-                                    fontSize: getProportionateScreenHeight(16),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-              );
-            }
-          }),
+                  );
+                }
+              }),
     );
   }
 
@@ -476,7 +493,7 @@ class SendTokenStep1 extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  const Icon(
+                  Icon(
                     MdiIcons.chevronDown,
                     color: Colors.white,
                   ),
@@ -741,7 +758,7 @@ class SendTokenStep2 extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  const Icon(
+                  Icon(
                     MdiIcons.chevronDown,
                     color: Colors.white,
                   ),

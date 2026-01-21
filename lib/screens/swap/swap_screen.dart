@@ -28,7 +28,7 @@ class _SendScreenState extends State<SendScreen> {
           onTap: () {
             // Navigator.pop(context);
           },
-          child: const Icon(
+          child: Icon(
             MdiIcons.chevronLeft,
             color: Colors.white,
           ),
@@ -49,7 +49,7 @@ class _SendScreenState extends State<SendScreen> {
         ),
         child: Column(
           children: [
-            const SendWidget(
+            SendWidget(
               tokenAmount: '11.33',
               tokenSymbol: 'BTC',
               fiatValue: '94.33',
@@ -59,7 +59,7 @@ class _SendScreenState extends State<SendScreen> {
             SizedBox(
               height: getProportionateScreenHeight(15),
             ),
-            const SendWidget(
+            SendWidget(
               tokenAmount: '1789.33',
               tokenSymbol: 'ETH',
               fiatValue: '563.33',
@@ -120,7 +120,7 @@ class _SendScreenState extends State<SendScreen> {
                                   onTap: () {
                                     // Navigator.pop(context);
                                   },
-                                  child: const Icon(
+                                  child: Icon(
                                     MdiIcons.chevronLeft,
                                     color: Colors.white,
                                   ),
@@ -441,7 +441,7 @@ class SendWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: getProportionateScreenWidth(13)),
-                  const Icon(
+                  Icon(
                     MdiIcons.chevronDown,
                     color: Color(0xFFA3A7C5),
                   ),

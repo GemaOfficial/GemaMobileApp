@@ -78,13 +78,11 @@ class ReceiveTokens extends StatelessWidget {
                   height: SizeConfig.screenHeight * 0.27,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: QrImage(
+                    child: QrImageView(
                       data: userName,
-                      version: 9,
+                      version: QrVersions.auto,
                       errorCorrectionLevel: QrErrorCorrectLevel.Q,
-                      gapless: false,
                       size: 150.0,
-                      backgroundColor: Colors.white,
                     ),
                   ),
                 ),
@@ -150,7 +148,7 @@ class ReceiveTokens extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () async {
-                    ~_onSharedAddress(context, userName);
+                    _onSharedAddress(context, userName);
                   },
                   child: Container(
                     width: SizeConfig.screenWidth * 0.45,

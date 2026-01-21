@@ -18,7 +18,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
       backgroundColor: kBgColor,
       appBar: AppBar(
         backgroundColor: kBgColor,
-        leading: const InkWell(
+        leading: InkWell(
           child: Icon(MdiIcons.chevronLeft),
         ),
         title: Text(

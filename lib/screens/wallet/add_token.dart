@@ -6,7 +6,7 @@ import 'package:gema_mobile/utils/size_config.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class AddTokenScreen extends StatefulWidget {
-  const AddTokenScreen({Key? key}) : super(key: key);
+  const AddTokenScreen({super.key});
 
   @override
   State<AddTokenScreen> createState() => _AddTokenScreenState();
@@ -46,7 +46,7 @@ class _AddTokenScreenState extends State<AddTokenScreen> {
           onTap: () {
             Navigator.pop(context);
           },
-          child: const Icon(
+          child: Icon(
             MdiIcons.chevronLeft,
             color: Colors.white,
           ),
@@ -94,7 +94,7 @@ class _AddTokenScreenState extends State<AddTokenScreen> {
                       fontSize: getProportionateScreenHeight(14),
                       color: Colors.white.withOpacity(0.2),
                     ),
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       MdiIcons.magnify,
                       color: Colors.white,
                     ),
@@ -148,8 +148,7 @@ class _AddTokenScreenState extends State<AddTokenScreen> {
                         Navigator.pop(context);
                       },
                       style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all(kPrimaryColor),
+                        foregroundColor: WidgetStateProperty.all(kPrimaryColor),
                       ),
                       child: const Text(
                         'Cancel',
@@ -206,8 +205,8 @@ class AddTokenWidget extends StatelessWidget {
     this.symbol,
     this.icon, {
     required this.iconColor,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

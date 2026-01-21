@@ -54,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         backgroundColor: kBgColor,
         leading: InkWell(
           onTap: () => settingsCtrl.resetSettings(),
-          child: const Icon(MdiIcons.chevronLeft),
+          child: Icon(MdiIcons.chevronLeft),
         ),
         title: Text(
           'Settings',
